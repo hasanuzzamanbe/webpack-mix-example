@@ -1,4 +1,4 @@
-import '../css/main.css'
+import '../css/main.css';
 import '../css/input-elements.css';
 
 import { button, element }  from './dom-loader.js';
