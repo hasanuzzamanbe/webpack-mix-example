@@ -1,5 +1,5 @@
 var path = require('path');
-// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: './src/js/app.js',
     output: {
@@ -18,8 +18,17 @@ module.exports = {
             }
         ]
     },
-    //will optimize build file install ind use uglifyjs-webpack-plugin
-    // optimization: { 
-    //     minimizer: [new UglifyJsPlugin()],
-    // }
+    //  install older version "npm i -D uglifyjs-webpack-plugin@1.3.0"
+    //will optimize build file install ind use uglify-js-webpack-plugin
+    optimization: {
+        minimizer: [new UglifyJsPlugin({
+            "uglifyOptions":
+                {
+                    compress: {
+                        warnings: false
+                    },
+                    sourceMap: true
+                }
+        })],
+    }
 }
